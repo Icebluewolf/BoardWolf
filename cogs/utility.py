@@ -1,5 +1,5 @@
 import discord
-from discord import slash_command
+from discord import slash_command, Option
 
 
 class Utility(discord.Cog):
@@ -8,7 +8,11 @@ class Utility(discord.Cog):
 
     @slash_command()
     async def ping(self, ctx):
-        await ctx.respond(str(self.bot.latency * 1000))
+        await ctx.prespond.error(str(self.bot.latency * 1000))
+
+    @slash_command()
+    async def test(self, ctx):
+        await ctx.prespond.general(title="respond", message="1")
 
 
 def setup(bot):
